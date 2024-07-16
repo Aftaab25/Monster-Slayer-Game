@@ -51,7 +51,18 @@
             </section>
             <section id="log" class="container">
                 <h2>Battle Log</h2>
-                <ul></ul>
+                <ul>
+                    <li v-for="logMessage in logMessages">
+                        <span
+                            :class="{'log--player': logMessage.actionBy === 'Player', 'log--monster': logMessage.actionBy === 'Monster'}"
+                            >{{logMessage.actionBy === "Player" ? "Player" :
+                            "Monster"}}</span
+                        >
+                        <span></span>
+                        - {{logMessage.actionType}} - {{logMessage.actionValue}}
+                        points
+                    </li>
+                </ul>
             </section>
         </div>
     </body>
