@@ -14,6 +14,9 @@ A Player Log is provided as a reference for each step in the game.
 
 ## Screenshots
 
-### Task Trackerrr App
-![Task Trackerrr App](Screenshots/Monster_Slayer_ss1.png)
-![Task Trackerrr App](Screenshots/Monster_Slayer_ss2.png)
+### Monster Slayer Game
+<p align="display: flex; justify-content: space-between;">
+  <img src="Screenshots/Monster_Slayer_ss1.png" width="45%" />
+  &nbsp;
+  <img src="Screenshots/Monster_Slayer_ss2.png" width="45%" />
+</p>
