@@ -16,6 +16,12 @@ const app = Vue.createApp({
     monsterHealthStyle() {
       return { width: this.monsterHealth + "%" };
     },
+    result() {
+      if (this.playerHealth === 0 && this.monsterHealth === 0) return -1;
+      else if (this.monsterHealth === 0) return 1;
+      else if (this.playerHealth === 0) return 2;
+      else return null;
+    },
   },
   methods: {
     monsterAttack() {

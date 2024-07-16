@@ -35,7 +35,13 @@
                     ></div>
                 </div>
             </section>
-            <section id="controls">
+            <section class="container" v-if="result">
+                <h2>Game Over!</h2>
+                <h3 v-if="result === 1">You Won!</h3>
+                <h3 v-else-if="result === 2">You Lost!</h3>
+                <h3 v-else>Draw!</h3>
+            </section>
+            <section id="controls" v-else>
                 <button @click="attack">ATTACK</button>
                 <button @click="specialAttack">SPECIAL ATTACK</button>
                 <button @click="heal">HEAL</button>
