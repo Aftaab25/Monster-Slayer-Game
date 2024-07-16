@@ -9,6 +9,7 @@ const app = Vue.createApp({
       monsterHealth: 100,
       playerSurrender: false,
       logMessages: [],
+      counter: 0,
     };
   },
   computed: {
@@ -34,6 +35,7 @@ const app = Vue.createApp({
       this.addLogMessages("Monster", "Attack", monsterDamage);
     },
     attack() {
+      this.counter++;
       playerDamage = getRandomDamage(6, 10);
       if (this.monsterHealth - playerDamage < 0) this.monsterHealth = 0;
       else this.monsterHealth -= playerDamage;
@@ -42,13 +44,18 @@ const app = Vue.createApp({
       this.monsterAttack();
     },
     specialAttack() {
-      playerSpecialDamage = getRandomDamage(9, 14);
-      if (this.monsterHealth - playerSpecialDamage < 0) this.monsterHealth = 0;
-      else this.monsterHealth -= playerSpecialDamage;
-      this.addLogMessages("Player", "Attack", playerSpecialDamage);
-      this.monsterAttack();
+      if (this.counter % 3 === 0) {
+        this.counter++;
+        playerSpecialDamage = getRandomDamage(9, 14);
+        if (this.monsterHealth - playerSpecialDamage < 0)
+          this.monsterHealth = 0;
+        else this.monsterHealth -= playerSpecialDamage;
+        this.addLogMessages("Player", "Attack", playerSpecialDamage);
+        this.monsterAttack();
+      }
     },
     heal() {
+      this.counter++;
       healing = getRandomDamage(10, 15);
       if (this.playerHealth + healing > 100) this.playerHealth = 100;
       else this.playerHealth += healing;
