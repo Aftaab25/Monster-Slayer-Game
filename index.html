@@ -39,7 +39,9 @@
                 <h2>Game Over!</h2>
                 <h3 v-if="result === 1">You Won!</h3>
                 <h3 v-else-if="result === 2">You Lost!</h3>
+                <h3 v-else-if="result === 3">You Surrendered</h3>
                 <h3 v-else>Draw!</h3>
+                <button @click="restartGame">Play Again?</button>
             </section>
             <section id="controls" v-else>
                 <button @click="attack">ATTACK</button>

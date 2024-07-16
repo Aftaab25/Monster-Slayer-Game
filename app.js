@@ -7,6 +7,7 @@ const app = Vue.createApp({
     return {
       playerHealth: 100,
       monsterHealth: 100,
+      playerSurrender: false,
     };
   },
   computed: {
@@ -17,6 +18,7 @@ const app = Vue.createApp({
       return { width: this.monsterHealth + "%" };
     },
     result() {
+      if (this.playerSurrender) return 3;
       if (this.playerHealth === 0 && this.monsterHealth === 0) return -1;
       else if (this.monsterHealth === 0) return 1;
       else if (this.playerHealth === 0) return 2;
@@ -47,7 +49,10 @@ const app = Vue.createApp({
       else this.playerHealth += healing;
       this.monsterAttack();
     },
-    surrender() {},
+    surrender() {
+      this.playerSurrender = true;
+    },
+    restartGame() {},
   },
 });
 
